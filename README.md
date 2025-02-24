@@ -15,6 +15,7 @@ The main goal of these techniques is to make malicious code unrecognizable to an
     <li>Using algorithms like AES, RC4, XOR to encrypt the payload.</li>
     <li>The malware decrypts its code in memory only at runtime.</li>
     <li>Example: A dropper retrieves an AES-encrypted payload and decrypts it at runtime.</li>
+    
   </ul>
   <li>Sensitive String Encoding (String Obfuscation)</li>
   <ul>
