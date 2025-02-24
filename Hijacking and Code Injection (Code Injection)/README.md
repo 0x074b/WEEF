@@ -10,7 +10,7 @@
   * [EtwpCreateEtwThread Abuse (Chip of an ETW thread for executing code)](#etwpcreateetwthread-abuse---chip-of-an-etw-thread-for-executing-code--)
   * [Atom Bombing (Use of "atom tables" to inject code without a suspicious API)](#atom-bombing---use-of--atom-tables--to-inject-code-without-a-suspicious-api--)
   * [Heaven’s Gate (x86 x 64 Injection)](#heaven-s-gate---x86-x-64-injection--)
-- [EDR/AV bypass techniques](#edr/av-bypass-techniques)
+- [EDR AV bypass techniques](#edr-av-bypass-techniques)
   * [Syscall Direct (Syscall Spoofing)](#syscall-direct---syscall-spoofing--)
   * [PID Spoofing Parent (PPID Spoofing)](#pid-spoofing-parent---ppid-spoofing--)
   * [Indirect Syscalls - API Hook Evasion](#indirect-syscalls---api-hook-evasion)
