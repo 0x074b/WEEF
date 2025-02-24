@@ -40,6 +40,63 @@ HANDLE hThread = CreateRemoteThread(hProcess, NULL, 0, (LPTHREAD_START_ROUTINE)L
 - Rapid and stealthy execution of the injected shellcode.
 
 # Advanced Injection Techniques
+*More sophisticated methods used to circumvent modern detection solutions.*
+#### APC Injection *(Asynchronous Procedure Call)*
+- Execution of a shellcode via a ```APC Queue``` on a pending thread.
+- Use of ```QueueUserAPC```.
+- Execution in ```explorer.exe``` to mask activity.
+
+#### EtwpCreateEtwThread Abuse *(Chip of an ETW thread for executing code)*
+- Exploit EtwpCreateEtwThreadto execute a shellcode in a hidden thread.
+
+#### Atom Bombing *(Use of "atom tables" to inject code without a suspicious API)*
+- Store the shellcode in a ```Global Atom Table```.
+- A legitimate process reads this table and executes the malicious code.
+
+#### Heaven’s Gate *(x86 x 64 Injection)*
+- Allows a 32-bit process to run 64-bit code bypassing conventional Windows APIs.
+- Uses ```segment selectors```(```FS``` and ```GS```) to switch between x86 and x64.
+
+# EDR/AV bypass techniques
+#### Syscall Direct *(Syscall Spoofing)*
+- Instead of calling Windows APIs (```NtAllocateVirtualMemory```), malware directly calls system syscalls by avoiding ```ntdll.dll```.
+-
+
+#### PID Spoofing Parent *(PPID Spoofing)*
+- Amendment of ```Parent Process ID``` to make it appear that the malicious process has been initiated by a legitimate process (```explorer.exe```).
+- Example viaCreateProcessin PowerShell:
+```
+$si = New-Object Startupinfo
+$si.cb = [System.Runtime.InteropServices.Marshal]::SizeOf($si)
+$si.dwFlags = 0x1
+$si.wShowWindow = 0
+Start-Process -FilePath "cmd.exe" -NoNewWindow -PassThru
+```
+
+#### Indirect Syscalls - API Hook Evasion
+- Bypasses hooks placed by BDUs by calling syscalls indirectly.
+- Use of ```NtMapViewOfSection```, ```NtTestAlert``` to escape detection.
+
+# Examples of Malware Using These Techniques
+Cobalt Strike (Process Injection, Syscall Direct)
+
+    Injecting payloads into legitimate processes (explorer.exe).
+    Uses Syscall Spoofingto bypass EDRs.
+
+TrickBot (Process Hollowing, APC Injection)
+
+    Turned svchost.exeto execute its malicious modules.
+
+QakBot (Process Ghosting, Parent PID Spoofing)
+
+    Performs the code in explorer.exeto escape the AVs.
+
+Metasploit (DLL Injection, Early Bird Injection)
+
+    Payloads generated with msfvenomuse various methods of injection.
+
+
+
 
 
 
