@@ -29,7 +29,7 @@
 
 # Code Injection Techniques
 *Conventional injection methods use Windows APIs to write and execute code in a remote process.*
-## DLL Injection *(Dynamic Library Injection)*
+### DLL Injection *(Dynamic Library Injection)*
 - Charges a malicious DLL into a legitimate process.
 - Use of ```LoadLibrary```, ```CreateRemoteThread```, ```SetWindowsHookEx```.
 - Example:
