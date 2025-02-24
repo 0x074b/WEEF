@@ -74,26 +74,22 @@ Start-Process -FilePath "cmd.exe" -NoNewWindow -PassThru
 ```
 
 #### Indirect Syscalls - API Hook Evasion
-- Bypasses hooks placed by BDUs by calling syscalls indirectly.
+- Bypasses hooks placed by EDRs by calling syscalls indirectly.
 - Use of ```NtMapViewOfSection```, ```NtTestAlert``` to escape detection.
 
 # Examples of Malware Using These Techniques
-Cobalt Strike (Process Injection, Syscall Direct)
+#### Cobalt Strike *(**Process Injection**, **Syscall Direct**)*
+- Injecting payloads into legitimate processes (```explorer.exe```).
+- Uses ```Syscall Spoofing``` to bypass EDRs.
 
-    Injecting payloads into legitimate processes (explorer.exe).
-    Uses Syscall Spoofingto bypass EDRs.
+#### TrickBot *(**Process Hollowing**, **APC Injection**)*
+-Turned ```svchost.exe``` to execute its malicious modules.
 
-TrickBot (Process Hollowing, APC Injection)
+#### QakBot *(**Process Ghosting**, **Parent PID Spoofing**)*
+- Performs the code in ```explorer.exe``` to escape the AVs.
 
-    Turned svchost.exeto execute its malicious modules.
-
-QakBot (Process Ghosting, Parent PID Spoofing)
-
-    Performs the code in explorer.exeto escape the AVs.
-
-Metasploit (DLL Injection, Early Bird Injection)
-
-    Payloads generated with msfvenomuse various methods of injection.
+#### Metasploit *(**DLL Injection**, **Early Bird Injection**)*
+- Payloads generated with ```msfvenom``` use various methods of injection.
 
 
 
