@@ -3,9 +3,9 @@
 
 # Introduction
 ## Code Masking and Encryption (Obfuscation and Encryption)
-*(Techniques aimed at hiding, transforming or encrypting malicious code to avoid static and heuristic detection.)
+*(Techniques aimed at hiding, transforming or encrypting malicious code to avoid static and heuristic detection.)*
 
-The main goal of these techniques is to make malicious code unrecognizable to antivirus, Endpoint Detection and Response (EDR), and forensic analysis tools. These methods mainly target static analysis (signature-based) and heuristic analysis by transforming the structure of the malware.*
+*The main goal of these techniques is to make malicious code unrecognizable to antivirus, Endpoint Detection and Response (EDR), and forensic analysis tools. These methods mainly target static analysis (signature-based) and heuristic analysis by transforming the structure of the malware.*
 
 # Encryption and Encoding Techniques
 *Methods to hide sensitive payloads and strings by dynamically transforming them.*
