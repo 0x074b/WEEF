@@ -56,7 +56,9 @@
     <li>Replacement of direct calls (<code>CreateProcessA</code>, <code>VirtualAllocEx</code>) by dynamic resolutions.</li>
     <li>Execution via <code>LoadLibrary</code> and <code>GetProcAddress</code>.</li>
     <li>Example:
+      <br/>
         <code>HMODULE hLib = LoadLibraryA("kernel32.dll");</code>
+      <br/>
         <code>FARPROC pFunc = GetProcAddress(hLib, "VirtualAlloc");</code>
     </li>
     <br/>
