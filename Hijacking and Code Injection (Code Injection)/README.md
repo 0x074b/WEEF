@@ -83,7 +83,7 @@ Start-Process -FilePath "cmd.exe" -NoNewWindow -PassThru
 - Uses ```Syscall Spoofing``` to bypass EDRs.
 
 #### TrickBot *(**Process Hollowing**, **APC Injection**)*
--Turned ```svchost.exe``` to execute its malicious modules.
+- Turned ```svchost.exe``` to execute its malicious modules.
 
 #### QakBot *(**Process Ghosting**, **Parent PID Spoofing**)*
 - Performs the code in ```explorer.exe``` to escape the AVs.
