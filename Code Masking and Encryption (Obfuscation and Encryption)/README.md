@@ -92,6 +92,34 @@
   </ul>
 </ul>
 
+# Bypassing Signatures and Static Analysis
+*Techniques to prevent the identification of malware using known signatures.*
+<ul>
+  <li>Packing - Crypters</li>
+  <ul>
+    <li>Packaging of the malware in another layer of executable.</li>
+    <li>Use of custom packers to bypass detections.</li>
+    <li>Commercial crypters such as <code>Hyperion</code>, <code>Enigma Protector</code>.</li>
+    <br/>
+  </ul>
+  <li>Code Offuscation in Macros Office</li>
+  <ul>
+    <li>Obfuscation of VBA macros in Word or Excel to avoid detection.</li>
+    <li>Example:
+    <br/>
+    <code>Private Function d() As String
+    d = "Power" & "Shell"
+End Function</code>
+    </li>
+    <br/>
+  </ul>
+  <li>Use of Encryption/Salt Criting</li>
+  <ul>
+    <li>Decryption of the payload only when necessary.</li>
+    <li>Immediate removal of the memory after execution.</li>
+    <br/>
+  </ul>
+</ul>
 
 
 
