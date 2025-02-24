@@ -26,7 +26,7 @@ The main goal of these techniques is to make malicious code unrecognizable to an
   </ul>
   <li>Compression and Encryption of Executables</li>
   <ul>
-    <li>Using ```UPX```, ```MPRESS```, ```Themida```, ```VMProtect``` to hide the binary.</li>
+    <li>Using **UPX**, ```MPRESS```, ```Themida```, ```VMProtect``` to hide the binary.</li>
     <li>Some packers include protection against dynamic analysis.</li>
     <li>Example: ```UPX --best --lzma file.exe``` to compress an executable.</li>
     <br/>
