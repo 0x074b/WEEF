@@ -21,12 +21,12 @@ The main goal of these techniques is to make malicious code unrecognizable to an
   <ul>
     <li>Encoding strings to avoid detection by YARA rules or AV signatures.</li>
     <li>Common methods: Base64, ROT13, XOR, URL encoding.</li>
-    <li>Example: <code>QmFzZTY0IGlzIHVzZWQgdG8gaGlkZSB0ZXh0<code/> (Base64).</li>
+    <li>Example: <code>QmFzZTY0IGlzIHVzZWQgdG8gaGlkZSB0ZXh0</code> (Base64).</li>
     <br/>
   </ul>
   <li>Compression and Encryption of Executables</li>
   <ul>
-    <li>Using <code>UPX<code/>, <code>MPRESS<code/> <code>Themida<code/>, <code>VMProtect<code/> to hide the binary.</li>
+    <li>Using <code>UPX</code>, <code>MPRESS</code>, <code>Themida</code>, <code>VMProtect</code> to hide the binary.</li>
     <li>Some packers include protection against dynamic analysis.</li>
     <li>Example: ```UPX --best --lzma file.exe``` to compress an executable.</li>
     <br/>
