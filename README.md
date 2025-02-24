@@ -28,7 +28,7 @@ The main goal of these techniques is to make malicious code unrecognizable to an
   <ul>
     <li>Using <code>UPX</code>, <code>MPRESS</code>, <code>Themida</code>, <code>VMProtect</code> to hide the binary.</li>
     <li>Some packers include protection against dynamic analysis.</li>
-    <li>Example: ```UPX --best --lzma file.exe``` to compress an executable.</li>
+    <li>Example: <code>UPX --best --lzma file.exe</code> to compress an executable.</li>
     <br/>
   </ul>
   <li>Self-Modifying Code</li>
@@ -45,7 +45,7 @@ The main goal of these techniques is to make malicious code unrecognizable to an
   </ul>
   <li>Polyglots and Polyglot Files</li>
   <ul>
-    <li>Creation of valid files in several formats (```.jpg.exe```, ```.pdf.zip```).</li>
+    <li>Creation of valid files in several formats <code>.jpg.exe</code>, <code>.pdf.zip</code>).</li>
     <li>Exploiting applications that interpret them differently.</li>
     <br/>
   </ul>
