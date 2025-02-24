@@ -1,3 +1,25 @@
+# ToC
+- [Code Injection Techniques](#code-injection-techniques)
+      - [DLL Injection *(Dynamic Library Injection)*](#dll-injection---dynamic-library-injection--)
+      - [Process Hollowing *(Replacement of the image in memory of a process)*](#process-hollowing---replacement-of-the-image-in-memory-of-a-process--)
+      - [Process Doppelgänging *(Running a binary in a "transactional" state invisible to VA)*](#process-doppelg-nging---running-a-binary-in-a--transactional--state-invisible-to-va--)
+      - [Process Ghosting *(miscling of a legitimate executable before loading)*](#process-ghosting---miscling-of-a-legitimate-executable-before-loading--)
+      - [Thread Execution Hijacking *(Injection into an existing thread of a legitimate process)*](#thread-execution-hijacking---injection-into-an-existing-thread-of-a-legitimate-process--)
+      - [Early Bird Injection *(Code injection before full creation of the target process)*](#early-bird-injection---code-injection-before-full-creation-of-the-target-process--)
+- [Advanced Injection Techniques](#advanced-injection-techniques)
+      - [EtwpCreateEtwThread Abuse *(Chip of an ETW thread for executing code)*](#etwpcreateetwthread-abuse---chip-of-an-etw-thread-for-executing-code--)
+      - [Atom Bombing *(Use of "atom tables" to inject code without a suspicious API)*](#atom-bombing---use-of--atom-tables--to-inject-code-without-a-suspicious-api--)
+      - [Heaven’s Gate *(x86 x 64 Injection)*](#heaven-s-gate---x86-x-64-injection--)
+- [EDR/AV bypass techniques](#edr-av-bypass-techniques)
+      - [Syscall Direct *(Syscall Spoofing)*](#syscall-direct---syscall-spoofing--)
+      - [PID Spoofing Parent *(PPID Spoofing)*](#pid-spoofing-parent---ppid-spoofing--)
+      - [Indirect Syscalls - API Hook Evasion](#indirect-syscalls---api-hook-evasion)
+- [Examples of Malware Using These Techniques](#examples-of-malware-using-these-techniques)
+      - [Cobalt Strike *(**Process Injection**, **Syscall Direct**)*](#cobalt-strike-----process-injection------syscall-direct----)
+      - [TrickBot *(**Process Hollowing**, **APC Injection**)*](#trickbot-----process-hollowing------apc-injection----)
+      - [QakBot *(**Process Ghosting**, **Parent PID Spoofing**)*](#qakbot-----process-ghosting------parent-pid-spoofing----)
+      - [Metasploit *(**DLL Injection**, **Early Bird Injection**)*](#metasploit-----dll-injection------early-bird-injection----)
+
 # Introduction
 ### Hijacking and Code Injection (Code Injection)
 *(Techniques to execute malicious code in legitimate processes by manipulating the memory or execution mechanisms of Windows.)*
@@ -6,7 +28,7 @@
 
 # Code Injection Techniques
 *Conventional injection methods use Windows APIs to write and execute code in a remote process.*
-#### DLL Injection (Dynamic Library Injection)*
+#### DLL Injection *(Dynamic Library Injection)*
 - Charges a malicious DLL into a legitimate process.
 - Use of ```LoadLibrary```, ```CreateRemoteThread```, ```SetWindowsHookEx```.
 - Example:
