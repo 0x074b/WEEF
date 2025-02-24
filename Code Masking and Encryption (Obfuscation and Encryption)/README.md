@@ -47,3 +47,48 @@
     <br/>
   </ul>
 </ul>
+
+# Obfuscation of Windows Code and APIs
+*Techniques to prevent analysis and reverse engineering by making the structure of the code more complex.*
+<ul>
+  <li>Obfuscation of Windows APIs</li>
+  <ul>
+    <li>Replacement of direct calls (<code>CreateProcessA</code>, <code>VirtualAllocEx</code>) by dynamic resolutions.</li>
+    <li>Execution via <code>LoadLibrary</code> and <code>GetProcAddress</code>.</li>
+    <li>Example:
+      <code>HMODULE hLib = LoadLibraryA("kernel32.dll");
+        FARPROC pFunc = GetProcAddress(hLib, "VirtualAlloc");</code></li>
+    <br/>
+  </ul>
+  <li>Obcent control of the Control Flow (Control Flow Obfuscation)</li>
+  <ul>
+    <li>Added false conditional blocks and unnecessary jumps to disrupt the analysis.</li>
+    <li>Example: Unnecessary loops, redundant instructions.</li>
+    <br/>
+  </ul>
+  <li>Transfers and conversions of the Code</li>
+  <ul>
+    <li>Addition of "noise" code that does not change the logic but complicates reading.</li>
+    <li>Replacement of certain instructions by longer equivalents.</li>
+    <br/>
+  </ul>
+  <li>Polymorphism and Metamorphism</li>
+  <ul>
+    <li>Polymorphism: The code changes slightly with each execution.</li>
+    <li>Metamorphism: The code is completely rewritten without changing its functionality.</li>
+    <br/>
+  </ul>
+  <li>Deactivation of Windows Protectors</li>
+  <ul>
+    <li>Deactivation of AMSI (Antimalware Scan Interface) in memory to run PowerShell scripts without detection.</li>
+    <li>Example of AMSI bypass in PowerShell:
+    <code>
+      [Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed', 'NonPublic, Static').SetValue($null, $true)
+    </code></li>
+    <br/>
+  </ul>
+</ul>
+
+
+
+
