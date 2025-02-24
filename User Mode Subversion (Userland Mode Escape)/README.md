@@ -84,6 +84,19 @@ echo "Malicious Code" > normal.txt:hidden.txt
 - Execution of malicious scripts via Microsoft-signed applications (```mshta.exe```, ```wscript.exe```).
 - Allows you to bypass the Whitelisting Application (AWL).
 
+#### Operation of objects COM
+- COM hijacking, execution via ```ShellWindows```, ```Wscript.Shell```.
+
+#### Hijacking of Shortcuts
+- Enforcement of code via files ```.lnk```.
+
+
+
+
+
+
+
+
 
 
 
