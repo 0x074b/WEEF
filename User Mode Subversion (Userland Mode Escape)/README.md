@@ -8,9 +8,9 @@
 #### Hooking API Evasion *(Off-Disablement or Bypassing Hooks Placed by EDRs)*
 - EDRs place hooks on APIs like ```NtOpenProcess```, ```NtReadVirtualMemory```, ```NtWriteVirtualMemory``` to monitor suspicious behaviour.
 - A malware can bypass these hooks by:
-  > Restoration of the original functions (```unhooking```).
-  > Use of ```syscall direct``` to avoid instrumented APIs.
-  > Injecting a clean copy of ```ntdll.dll``` to avoid hooks placed in memory.
+  - Restoration of the original functions (```unhooking```).
+  - Use of ```syscall direct``` to avoid instrumented APIs.
+  - Injecting a clean copy of ```ntdll.dll``` to avoid hooks placed in memory.
 
 #### Direct Syscalls - Syscall Spoofing
 - Avoid Windows APIs and call them directly ```syscalls``` via instruction ```syscall``` as an assembler.
