@@ -56,8 +56,11 @@
     <li>Replacement of direct calls (<code>CreateProcessA</code>, <code>VirtualAllocEx</code>) by dynamic resolutions.</li>
     <li>Execution via <code>LoadLibrary</code> and <code>GetProcAddress</code>.</li>
     <li>Example:
-      <code>HMODULE hLib = LoadLibraryA("kernel32.dll");
-        FARPROC pFunc = GetProcAddress(hLib, "VirtualAlloc");</code></li>
+      <code>
+        HMODULE hLib = LoadLibraryA("kernel32.dll");
+        FARPROC pFunc = GetProcAddress(hLib, "VirtualAlloc");
+      </code>
+    </li>
     <br/>
   </ul>
   <li>Obcent control of the Control Flow (Control Flow Obfuscation)</li>
