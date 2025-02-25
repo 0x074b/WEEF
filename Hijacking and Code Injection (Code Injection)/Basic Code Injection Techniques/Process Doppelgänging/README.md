@@ -5,10 +5,10 @@ Unlike **Process Hollowing**, which modifies the memory of a suspended process, 
 *This technique is often used by **malware, APT groups, and red teamers** to evade antivirus (AV) and Endpoint Detection & Response (EDR) solutions.*
 
 ## Why Use Process Doppelgänging?
-- **Bypasses antivirus and EDR** - Since no actual file is written to disk, traditional file-scanning mechanisms fail.
-- **Hides malicious execution** - The process appears legitimate in memory.
-- **Leaves no trace on disk** - Uses the NTFS transaction mechanism to load malicious code without writing it permanently.
-- **Avoids process creation detection** - The execution does not follow standard process creation workflows, making it stealthier.
+- **Bypasses antivirus and EDR** – Since no actual file is written to disk, traditional file-scanning mechanisms fail.
+- **Hides malicious execution** – The process appears legitimate in memory.
+- **Leaves no trace on disk** – Uses the NTFS transaction mechanism to load malicious code without writing it permanently.
+- **Avoids process creation detection** – The execution does not follow standard process creation workflows, making it stealthier.
 
 > [!NOTE]
 > **Process Doppelgänging** is more **stealthy** than Process Hollowing because it **does not require** an actual **file on disk**.
@@ -67,16 +67,16 @@ Unlike **Process Hollowing**, which modifies the memory of a suspended process, 
 # Detection and Defense Against Process Doppelgänging
 ## How to Detect Process Doppelgänging?
 
-- **Monitor NTFS Transactions** - Security tools should watch for unusual file transactions and rollbacks.
-- **Track Memory Execution** - Processes loading sections from deleted files or rollback transactions are suspicious.
-- **Behavioral Analysis** - If a process starts from a non-existent file, it may be Doppelgänging.
-- **Detect API Calls** - Watch for calls like ```CreateTransaction```, ```RollbackTransaction```, ```NtCreateSection```.
+- **Monitor NTFS Transactions** – Security tools should watch for unusual file transactions and rollbacks.
+- **Track Memory Execution** – Processes loading sections from deleted files or rollback transactions are suspicious.
+- **Behavioral Analysis** – If a process starts from a non-existent file, it may be Doppelgänging.
+- **Detect API Calls** – Watch for calls like ```CreateTransaction```, ```RollbackTransaction```, ```NtCreateSection```.
 
 ## Defense Techniques
 
-- **Use Endpoint Detection & Response (EDR)** - Solutions that track process behavior can detect anomalies.
-- **Restrict NTFS Transaction Usage** - If not needed, disable TxF features.
-- **Monitor Memory Execution** - Detect processes running from unmapped memory sections.
-- **Enable Advanced Logging** - Windows Event Logging can capture unusual process behaviors.
+- **Use Endpoint Detection & Response (EDR)** – Solutions that track process behavior can detect anomalies.
+- **Restrict NTFS Transaction Usage** – If not needed, disable TxF features.
+- **Monitor Memory Execution** – Detect processes running from unmapped memory sections.
+- **Enable Advanced Logging** – Windows Event Logging can capture unusual process behaviors.
 
 
