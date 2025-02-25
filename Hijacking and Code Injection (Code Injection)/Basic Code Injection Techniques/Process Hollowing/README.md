@@ -9,6 +9,9 @@ This technique is commonly used to **hide malware** by making it appear as a tru
 - **Gain elevated privileges** by injecting into a high-privilege process.
 - **Evade behavioral monitoring** by executing within a system process.
 
+> [!NOTE]
+> **Process Hollowing** is more **stealthy** than classic DLL injection but requires **higher privileges**.
+
 # How Process Hollowing Works
 *Process Hollowing follows these main steps:*
 
@@ -59,4 +62,15 @@ This technique is commonly used to **hide malware** by making it appear as a tru
 └────────────────────┘  
 ```
 
-t
+# Detection and Defense Against Process Hollowing
+## How to Detect Process Hollowing?
+- **Monitor Suspended Processes** – Detect processes that remain in a suspended state for too long.
+- **Check Memory Inconsistencies** – If a process’s memory differs from its original file on disk, it may be hollowed.
+- **Detect Unmapped Sections** – Tools like **Process Hacker** can show if a process has unmapped memory regions.
+- **Monitor API Calls** – Calls like ```ZwUnmapViewOfSection```, ```WriteProcessMemory```, and ```SetThreadContext``` indicate possible Process Hollowing.
+
+## Defense Techniques
+
+- **Enable Windows Defender’s Attack Surface Reduction (ASR)** – Helps prevent suspicious memory modifications.
+- **Use Behavior-Based Detection** – Traditional signature-based AVs may not detect Process Hollowing, but **EDR solutions** can monitor behavior.
+- **Restrict Process Creation Policies** – Limit which applications can spawn new processes.
