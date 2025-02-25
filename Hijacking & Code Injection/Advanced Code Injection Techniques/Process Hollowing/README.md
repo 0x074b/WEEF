@@ -22,7 +22,7 @@ This technique is commonly used to **hide malware** by making it appear as a tru
 5. **Set Execution Context** – The Entry Point of the process is modified with ```SetThreadContext``` to point to the malicious code.
 6. **Resume Execution** – The suspended process is resumed using ```ResumeThread```, now running the attacker's payload.
 
-## Process Hollowing Attack Diagram
+# Process Hollowing Attack Diagram
 *Here’s a visual representation of the attack:*
 ```
 ┌────────────────────┐

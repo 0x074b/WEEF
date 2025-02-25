@@ -24,7 +24,7 @@ It helps **reduce redundancy** and **share functionalities** across applications
 4. **Creating a remote thread** – The injector forces the process to execute ```LoadLibrary``` to load the DLL.
 5. **Executing malicious code** – Once loaded, the DLL executes inside the process.
 
-## Diagram of a DLL Injection Attack
+# Diagram of a DLL Injection Attack
 *(A remote process injects a malicious DLL into a target process.)*
 ```
 ┌──────────────┐
