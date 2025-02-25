@@ -4,7 +4,7 @@ It was first documented by security researchers as a way to bypass modern securi
 
 *This method abuses how Windows handles file execution, allowing a process to be **created from a deleted or unlinked file**, making it difficult for security tools to detect and analyze.*
 
-# Why Use Process Ghosting?
+## Why Use Process Ghosting?
 
 - **Bypasses Antivirus and EDR solutions** – The file is removed before execution, preventing detection.
 - **Avoids file-based scanning** – Since the file does not exist on disk at execution time, traditional AV solutions cannot scan it.
