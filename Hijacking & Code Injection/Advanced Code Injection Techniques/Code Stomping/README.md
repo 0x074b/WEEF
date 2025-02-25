@@ -79,4 +79,4 @@ Unlike traditional injection methods that allocate and execute new memory region
 
 - **Enable Code Integrity Enforcement** – Protect system DLLs from unauthorized modifications.
 - **Use Memory Scanning Tools** – Advanced security solutions can detect **modified code sections** inside trusted modules.
-- **Monitor Thread Execution Context** – If a thread suddenly executes from a modified **RX** region, it may indicate Code Stomping.
+- **Monitor Thread Execution Context** – If a thread suddenly executes from a modified ```RX``` region, it may indicate Code Stomping.
