@@ -7,6 +7,7 @@
   * [Thread Execution Hijacking *(Injection into an existing thread of a legitimate process)*](#thread-execution-hijacking---injection-into-an-existing-thread-of-a-legitimate-process--)
   * [Early Bird Injection *(Code injection before full creation of the target process)*](#early-bird-injection---code-injection-before-full-creation-of-the-target-process--)
 - [Advanced Injection Techniques](#advanced-injection-techniques)
+  * [APC Injection *(Asynchronous Procedure Call)*](apc-injection---asynchronous-procedure-call--)
   * [EtwpCreateEtwThread Abuse *(Chip of an ETW thread for executing code)*](#etwpcreateetwthread-abuse---chip-of-an-etw-thread-for-executing-code--)
   * [Atom Bombing *(Use of "atom tables" to inject code without a suspicious API)*](#atom-bombing---use-of--atom-tables--to-inject-code-without-a-suspicious-api--)
   * [Heaven’s Gate *(x86 x 64 Injection)*](#heaven-s-gate---x86-x-64-injection--)
