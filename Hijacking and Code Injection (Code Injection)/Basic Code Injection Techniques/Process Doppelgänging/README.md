@@ -17,20 +17,20 @@ Unlike **Process Hollowing**, which modifies the memory of a suspended process, 
 *Process Doppelgänging consists of four main steps:*
 
 ### 1. Transactional File Creation (TXF Abuse)
-  - The attacker creates a malicious file inside an NTFS transaction (using Windows Transactional NTFS – TxF).
-  - The file exists only within the transaction, so it is invisible to security tools and never actually saved to disk.
+  - The attacker **creates a malicious file** inside an **NTFS transaction** (using Windows Transactional NTFS – TxF).
+  - The file exists **only within the transaction**, so it is **invisible** to security tools and never actually saved to disk.
 
 ### 2. Transaction Rollback
-  - Instead of committing the transaction, the attacker rolls it back.
-  - The file vanishes from the file system, but Windows still allows access to its handle in memory.
+  - Instead of committing the transaction, the attacker **rolls it back**.
+  - The file **vanishes** from the file system, but Windows still allows access to its **handle** in memory.
 
 ### 3. Process Execution via Section Mapping
-  - The attacker creates a process and maps the malicious executable from the rolled-back transaction into memory.
-  - Since the file does not exist on disk, security software cannot scan it.
+  - The attacker **creates a process** and maps the malicious executable from the rolled-back transaction into memory.
+  - Since the file does not exist on disk, **security software cannot scan it**.
 
 ### 4. Process Execution
-  - The process is started as if it were a legitimate executable, but it is actually running malicious code.
-  - The malware is now running without ever being written to disk and appears as a normal process.
+  - The process is started as if it were a legitimate executable, but it is actually running **malicious code**.
+  - The malware is now running **without ever being written to disk** and appears as a normal process.
 
 # Process Doppelgänging Attack Diagram
 *Here’s a step-by-step visual representation of how Process Doppelgänging works:*
