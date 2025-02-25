@@ -4,7 +4,7 @@ This allows malware to blend in with legitimate processes, bypassing security mo
 
 *Unlike other injection techniques (e.g., **DLL Injection**, **APC Injection**, or **Process Hollowing**), Process Reimaging **completely replaces the image of a process in memory** while keeping its execution context unchanged.*
 
-# Why Use Process Reimaging?
+## Why Use Process Reimaging?
 
 - **Bypass security defenses** – Keeps the original process name and handles, making it harder for EDR (Endpoint Detection & Response) to detect.
 - **Avoid antivirus detection** – AV solutions often trust running processes; replacing one allows execution of malicious code under a trusted process.
